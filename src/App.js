@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import MovieRows from './components/MovieRows';
+import TvShowsRows from './components/TvShowsRows';
+import Bookmarks from './components/Bookmarks';
+import Searched from './components/Searched';
+import MovieDetails from './components/MovieDetails';
+import TvShowsDetails from './components/TvShowsDetails';
+import { Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route exact path="/"  element={<MovieRows />} />
+      <Route  path="/tv-shows"  element={<TvShowsRows />} />
+      <Route  path="/bookmarks"  element={<Bookmarks />} />
+      <Route path="/search/:query"  element={<Searched />} />
+      <Route path="/movie-details/:id"  element={<MovieDetails />} />
+      <Route path="/tvshows-details/:id"  element={<TvShowsDetails />} />
+    </Routes>
+    </>
   );
 }
 
